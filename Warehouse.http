@@ -1,0 +1,14 @@
+### GET request to example server
+GET http://localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/
+
+###
+GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products
+
+###
+GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products/1
+
+###
+GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products/categories/OTHER
+
+###
+GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/search?name=product1
