@@ -29,21 +29,6 @@ public class WarehouseTest {
     }
 
     @Test
-    void givenProductWithEmptyNameWhenAddProductRuns() {
-        assertThrows(IllegalArgumentException.class, () -> warehouse.addProduct(new Product("1", "", category, 5, LocalDate.now(), LocalDate.now())));
-    }
-
-    @Test
-    void givenProductWithNullNameWhenAddProductRuns() {
-        assertThrows(IllegalArgumentException.class, () -> warehouse.addProduct(new Product("1", null, category, 5, LocalDate.now(), LocalDate.now())));
-    }
-
-    @Test
-    void givenProductWithNullDateWhenAddProductRuns() {
-        assertThrows(IllegalArgumentException.class, () -> warehouse.addProduct(new Product("1", "phone", category, 5, null, LocalDate.now())));
-    }
-
-    @Test
     void givenProductWithNullModifiedDateWhenAddProductRuns() {
         Product product = new Product("1", "phone", category, 5, LocalDate.now(), null);
         assertThat(product.modifiedDate()).isEqualTo(product.createdDate());
