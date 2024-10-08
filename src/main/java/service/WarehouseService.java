@@ -20,6 +20,8 @@ public class WarehouseService {
     private Warehouse warehouse;
 
     public WarehouseService() {
+        this.warehouse = new Warehouse();
+        addDefaultProducts();
     }
 
     @Inject

@@ -65,7 +65,6 @@ public class WarehouseResource {
                 .build();
     }
 
-    //LOGGA DETTA SEN
     @POST
     @Path("/products")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -73,7 +72,7 @@ public class WarehouseResource {
     public Response addProduct(@Valid Product product) {
         warehouseService.addProduct(product);
         logger.info("Product added: {}", product);
-        return Response.ok(product).build();
+        return Response.status(Response.Status.CREATED).build();
     }
 
     @GET
