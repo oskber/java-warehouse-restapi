@@ -4,6 +4,9 @@ GET http://localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/
 ###
 GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products
 
+### GET request to get all products with pagination
+GET http://localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products?page=1&size=10
+
 ###
 GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products/1
 
@@ -11,4 +14,32 @@ GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products/1
 GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products/categories/OTHER
 
 ###
-GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/search?name=product1
+POST localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "category": "OTHER",
+  "createdDate": "2024-09-30",
+  "id": "5",
+  "modifiedDate": "2024-09-30",
+  "name": "beanbag",
+  "rating": 2
+}
+
+###
+POST localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/products
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "category": "OTHER",
+  "createdDate": "2024-09-30",
+  "id": "5",
+  "modifiedDate": "2024-09-30",
+  "name": "beanbag",
+  "rating": 6
+}
+
+###
+GET localhost:8080/java-warehouse-restapi-1.0-SNAPSHOT/api/search?name=beanbag&pages=10

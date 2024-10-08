@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @ApplicationScoped
@@ -51,10 +52,14 @@ public class WarehouseService {
         }
     }
 
-    public List<Product> getAllProducts() {
+    public List<Product> getAllProducts(int page, int size) {
         lock.lock();
         try {
-            return warehouse.getAllProducts();
+            int start = (page - 1) * size;
+            return warehouse.getAllProducts().stream()
+                    .skip(start)
+                    .limit(size)
+                    .collect(Collectors.toList());
         } finally {
             lock.unlock();
         }
