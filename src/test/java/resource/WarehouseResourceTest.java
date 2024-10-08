@@ -1,3 +1,5 @@
+package resource;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -6,7 +8,6 @@ import entities.Product;
 import exceptionmapper.IllegalProductWarehouseStateException;
 import exceptionmapper.IllegalProductWarehouseStateExceptionMapper;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import org.example.warehouse.ObjectMapperProvider;
 import org.jboss.resteasy.mock.MockDispatcherFactory;
