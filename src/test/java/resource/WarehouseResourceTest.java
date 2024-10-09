@@ -65,5 +65,21 @@ public class WarehouseResourceTest {
             MockHttpResponse response = new MockHttpResponse();
             dispatcher.invoke(request, response);
             assertEquals(201, response.getStatus());
-        }
+    }
+
+    @Test
+    public void whenCallingGetProductByIdShouldReturnProduct() throws URISyntaxException, UnsupportedEncodingException {
+        MockHttpRequest request = MockHttpRequest.get("/products/1");
+        MockHttpResponse response = new MockHttpResponse();
+        dispatcher.invoke(request, response);
+        assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    public void whenCallingGetProductsByCategory() throws URISyntaxException, UnsupportedEncodingException {
+        MockHttpRequest request = MockHttpRequest.get("/products/categories/ELECTRONICS");
+        MockHttpResponse response = new MockHttpResponse();
+        dispatcher.invoke(request, response);
+        assertEquals(200, response.getStatus());
+    }
 }
