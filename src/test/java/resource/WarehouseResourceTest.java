@@ -22,6 +22,7 @@ import org.example.warehouse.WarehouseResource;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -81,5 +82,17 @@ public class WarehouseResourceTest {
         MockHttpResponse response = new MockHttpResponse();
         dispatcher.invoke(request, response);
         assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    public void getAllProducts() throws URISyntaxException, UnsupportedEncodingException, JsonProcessingException {
+        MockHttpRequest request = MockHttpRequest.get("/products");
+        MockHttpResponse response = new MockHttpResponse();
+        dispatcher.invoke(request, response);
+        assertEquals(200, response.getStatus());
+
+        List<Product> products = objectMapper.readValue(response.getContentAsString(), objectMapper.getTypeFactory().constructCollectionType(List.class, Product.class));
+        assertNotNull(products);
+        assertFalse(products.isEmpty());
     }
 }
