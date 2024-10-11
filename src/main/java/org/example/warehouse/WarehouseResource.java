@@ -74,11 +74,4 @@ public class WarehouseResource {
         logger.info("Product added: {}", product);
         return Response.status(Response.Status.CREATED).build();
     }
-
-    @GET
-    @Path("/search")
-    @Produces("text/plain")
-    public String search(@QueryParam("name") String name, @QueryParam("pages") int pages) {
-        return name + " " + pages;
-    }
 }
