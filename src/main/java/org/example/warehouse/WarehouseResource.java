@@ -41,6 +41,7 @@ public class WarehouseResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllProducts(@QueryParam("page") @DefaultValue("1") int page,
                                    @QueryParam("size") @DefaultValue("10") int size) {
+        logger.info("Fetching products for page: {} and size: {}", page, size);
         List<Product> products = warehouseService.getAllProducts(page, size);
         return Response.ok(products).build();
     }
@@ -61,6 +62,7 @@ public class WarehouseResource {
     @Path("/products/categories/{category}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProductsByCategory(@PathParam("category") Category category) {
+        logger.info("Fetching products for category: {}", category);
         return Response.ok(warehouseService.getProductsByCategory(category))
                 .build();
     }
