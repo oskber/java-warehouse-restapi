@@ -2,11 +2,11 @@
 
 1. **Pull the Docker Image**:
    ```sh
-   docker pull oskber/warehouse:latest
+   docker pull oskber/java-warehouse-restapi
    
 2. **Run the Docker Container**:
    ```sh
-   docker run -p 8080:8080 -it oskber/warehouse:latest
+   docker run -p 8080:8080 -it oskber/java-warehouse-restapi:latest
    
 3. **Open the Browser**:
    ```sh
