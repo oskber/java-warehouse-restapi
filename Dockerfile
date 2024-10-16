@@ -1,11 +1,11 @@
 # Base stage
-FROM maven:3.8.4-openjdk-17 AS base
+FROM maven:3.9.9-sapmachine-21 AS base
 WORKDIR /app
 COPY . .
 
 # Build stage
 FROM base AS build
-RUN mvn -X clean package
+RUN mvn clean package
 
 # Test stage
 FROM build AS test
