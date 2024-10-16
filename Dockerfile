@@ -1,3 +1,7 @@
+# Test stage
+FROM build AS test
+RUN mvn test
+
 FROM quay.io/wildfly/wildfly:latest
 EXPOSE 8080
 LABEL authors="Oskar"
