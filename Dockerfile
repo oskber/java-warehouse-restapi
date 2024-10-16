@@ -1,7 +1,17 @@
+# Base stage
+FROM maven:3.8.4-openjdk-21 AS base
+WORKDIR /app
+COPY . .
+
+# Build stage
+FROM base AS build
+RUN mvn clean package
+
 # Test stage
 FROM build AS test
 RUN mvn test
 
+# Final stage
 FROM quay.io/wildfly/wildfly:latest
 EXPOSE 8080
 LABEL authors="Oskar"
