@@ -1,5 +1,5 @@
 # Base stage
-FROM maven:3.8.4-openjdk-21 AS base
+FROM maven:3.8.4-openjdk-17 AS base
 WORKDIR /app
 COPY . .
 
