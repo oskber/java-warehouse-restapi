@@ -5,7 +5,7 @@ COPY . .
 
 # Build stage
 FROM base AS build
-RUN mvn clean package
+RUN mvn -X clean package
 
 # Test stage
 FROM build AS test
